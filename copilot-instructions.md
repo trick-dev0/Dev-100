@@ -1,0 +1,1 @@
+C:/Users/Patrick/Desktop/Projetos/Shopify/meu-primeiro-tema/AGENTS.md
