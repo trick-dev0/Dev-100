@@ -1,7 +1,7 @@
 <div class="containerHeroTest">
     <div class="infoTextTop">
-        <h2>This Page is very good!!</h2>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <h2> {{ section.settings.title }}</h2>
+        <p>{{ section.settings.text }}</p>
     </div>
     <div class="productInfo">
         {% if product %}
@@ -15,22 +15,30 @@
             </div>
         {% endif %}
     </div>
+
+    {% if product %}
+        {% render 'product-card', product: product %}
+    {% endif %}
+
 </div>
 
-{% stylesheet %}
+
+
+
+<style>
     .containerHeroTest{
         margin-top: 40px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #2C3947;
+        background-color: {{section.settings.bg_color}};
         color: #fff;
         border-radius: 10px;
         padding: 20px;
     }
 
     .infoTextTop{
-        background-color: #547A95;
+        background-color: {{ section.settings.bg_color_text }};
         border-radius: 10px;
         padding: 10px;
     }
@@ -62,4 +70,48 @@
     .productInfoRender{
 
     }
-{% endstylesheet %}
+</style>
+
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "This Page is very good!!"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Texto",
+      "default": "Lorem Ipsum..."
+    },
+    {
+      "type": "color",
+      "id": "bg_color_text",
+      "label": "Cor de fundo do texto",
+      "default": "#2C3947"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Cor de fundo do fundo",
+      "default": "#2C3947"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product",
+      "label": "Mostrar produto",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}

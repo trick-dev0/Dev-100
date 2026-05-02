@@ -1,0 +1,17 @@
+{% comment %} Snipet para visualizar um product {% endcomment %}
+<div>
+    <h2>{{ shop.name }}</h2>
+    <h3>{{ product.title }}</h3>
+
+    {{ product.featured_image |  image_url: width: 300 |  image_tag: alt: product.title, loading: 'lazy' }}
+
+    {% for variant in product.variants %}
+        <button 
+             data-variant-id="{{variant.id}}"       
+            {% unless variant.available %}disabled{% endunless %}
+        >
+                  {{ variant.title }} - {{ variant.price | money }}
+        </button>
+    {% endfor %}
+    <p>{{ product.price |  money }}</p>
+</div>
