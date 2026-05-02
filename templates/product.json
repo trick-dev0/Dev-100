@@ -12,9 +12,13 @@
     "main": {
       "type": "product",
       "settings": {}
+    },
+    "heroTest":{
+      "type": "heroTest"
     }
   },
   "order": [
-    "main"
+    "main",
+    "heroTest"
   ]
 }

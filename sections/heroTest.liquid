@@ -1,0 +1,64 @@
+<div class="containerHeroTest">
+    <div class="infoTextTop">
+        <h2>This Page is very good!!</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+    <div class="productInfo">
+        {% if product %}
+            <div class="productInfoText">
+                <h3>{{ product.title }}</h3>
+                <p>{{ product.price |  money }}</p>
+            </div>
+            <div class="productInfoRender">
+                {{ product.featured_image   | image_url: width: 300 | image_tag: alt: product.title, loading: 'lazy' }}
+                {{ product.description }}
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% stylesheet %}
+    .containerHeroTest{
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #2C3947;
+        color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .infoTextTop{
+        background-color: #547A95;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .infoTextTop h2{
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    .productInfo{
+        background-color: #E8EDF2;
+        color: #2C3947;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .productInfoText{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #C2A56D;
+        padding: 30px 10px;
+    }
+
+    .productInfoRender{
+
+    }
+{% endstylesheet %}

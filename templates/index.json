@@ -12,9 +12,13 @@
     "main": {
       "type": "hello-world",
       "settings": {}
+    },
+      "heroTest":{
+      "type": "heroTest"
     }
   },
   "order": [
-    "main"
+    "main",
+    "heroTest"
   ]
 }
